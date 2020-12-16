@@ -30,4 +30,4 @@ polyfill for DOM API
 
 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/replaceChildren
 
-[demo](demo/replaceChildren.html)
+[demo](https://xboxyan.codelabo.cn/dom-polyfill/demo/replaceChildren.html)
