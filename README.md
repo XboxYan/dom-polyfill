@@ -11,14 +11,8 @@ polyfill for DOM API
 * @email yanwenbin1991@live.com
 **/
 (function (item) {
-    if (item.hasOwnProperty('replaceChildren')) {
-        return;
-    }
-    Object.defineProperty(item, 'replaceChildren', {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        value: function append() {
+    if (!item.replaceChildren) {
+        item.replaceChildren = function () {
             var parentNode = this;
             var oldNodes = [].slice.call(parentNode.childNodes);
             var newNodes = [].slice.call(arguments);
@@ -29,7 +23,7 @@ polyfill for DOM API
             });
             parentNode.append.apply(this,newNodes);
         }
-    });
+    }
 })(HTMLElement.prototype);
 ```
 
