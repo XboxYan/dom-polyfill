@@ -23,4 +23,4 @@
             parentNode.append.apply(this,newNodes);
         }
     });
-})(Element.prototype);
+})(HTMLHtmlElement.prototype);
