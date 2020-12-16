@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h2>Party food option list</h2>
+    <style>
+        main {
+            display: flex;
+        }
+
+        div {
+            margin-right: 20px;
+        }
+
+        label,
+        button {
+            display: block;
+        }
+
+        .buttons {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+        }
+
+        select {
+            width: 200px;
+        }
+    </style>
+
+    <main>
+        <div>
+            <label for="no">No thanks!</label>
+
+            <select id="no" multiple size="10">
+                <option>Apples</option>
+                <option>Oranges</option>
+                <option>Grapes</option>
+                <option>Bananas</option>
+                <option>Kiwi fruits</option>
+                <option>Chocolate cookies</option>
+                <option>Peanut cookies</option>
+                <option>Chocolate bars</option>
+                <option>Ham Sandwiches</option>
+                <option>Cheese Sandwiches</option>
+                <option>Falafel sandwiches</option>
+                <option>Ice cream</option>
+                <option>Jelly</option>
+                <option>Carrot sticks and houmous</option>
+                <option>Margherita pizza</option>
+                <option>Pepperoni pizza</option>
+                <option>Vegan veggie pizza</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button id="to-yes">Transfer to "Yes" --&gt;</button>
+            <button id="to-no">&lt;-- Transfer to "No"</button>
+        </div>
+
+        <div>
+            <label for="yes">Yes please!</label>
+
+            <select id="yes" multiple size="10">
+
+            </select>
+        </div>
+    </main>
+</head>
+
+<body>
+    <script src="../src/replaceChildren.js"></script>
+    <script>
+        const noSelect = document.getElementById('no');
+        const yesSelect = document.getElementById('yes');
+        const noBtn = document.getElementById('to-no');
+        const yesBtn = document.getElementById('to-yes');
+
+        yesBtn.addEventListener('click', () => {
+            const selectedTransferOptions = document.querySelectorAll('#no option:checked');
+            const existingYesOptions = document.querySelectorAll('#yes option');
+            yesSelect.replaceChildren(...selectedTransferOptions, ...existingYesOptions);
+        });
+
+        noBtn.addEventListener('click', () => {
+            const selectedTransferOptions = document.querySelectorAll('#yes option:checked');
+            const existingNoOptions = document.querySelectorAll('#no option');
+            noSelect.replaceChildren(...selectedTransferOptions, ...existingNoOptions);
+        });
+    </script>
+</body>
+
+</html>
