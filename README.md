@@ -5,6 +5,11 @@ polyfill for DOM API
 ### 1.replaceChildren
 
 ```js
+/**
+* replaceChildren.js
+* @mdn https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/replaceChildren
+* @email yanwenbin1991@live.com
+**/
 (function (item) {
     if (item.hasOwnProperty('replaceChildren')) {
         return;
